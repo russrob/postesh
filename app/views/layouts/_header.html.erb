@@ -11,9 +11,14 @@
       <%= link_to 'Postesh', root_path, class: 'navbar-brand'%>
     </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+      <% if current_user %>
+      <li><%= link_to 'edit' , edit_user_registration_path %></li>
+      <li><%= link_to 'logout' , destroy_user_session_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to 'login', new_user_session_path %></li>
+      <% end %>
+        
+        
         
       </ul>
     </div><!-- /.navbar-collapse -->

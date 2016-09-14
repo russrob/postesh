@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'registrations'}  
   get 'feature' => 'pages#feature'
   get 'pricing' => 'pages#pricing'
   get 'about' => 'pages#about'
