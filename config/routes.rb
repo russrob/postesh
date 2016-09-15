@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'pricing' => 'pages#pricing'
   get 'about' => 'pages#about'
   get 'dashboard', to: 'pages#dashboard'
+  get 'auth/failure', to: 'connections#omniauth_failure'
   get 'pages/home'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

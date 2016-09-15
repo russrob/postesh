@@ -4,3 +4,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 	
 
 end
+
+
+OmniAuth.config.on_failure = Proc.new do |env| 
+	ConnectionsController.action(:omniauth_failure).call(env)
+end
