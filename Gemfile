@@ -54,5 +54,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'dotenv-rails', group: [:development]
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
 
 
