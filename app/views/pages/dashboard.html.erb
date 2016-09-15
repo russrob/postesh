@@ -1,28 +1,35 @@
 <div class="row">
 <!-- settings and connections
- -->
- 	<div class="col-md-2 text-center">
- 		<h3>Settings</h3>
- 		<div class="time-zone">
- 			<hr>
- 			<div class="text-center">
- 			<b><%= Time.zone.name%> Time Zone</b>
- 			 <div class="btn btn-lg btn-success "><%= link_to 'change', edit_user_registration_path%></div>	
- 			</div>
- 		</div>
- 	
- 		<div class="social">
- 			
- 		</div>
- 	</div>
- 	<div class="col-md-5">
- 		<h3 class="text-center">Scheduled</h3>
- 		<hr>
- 	</div>
- 	<div class="col-md-5">
- 		<h3 class="text-center">History</h3>
- 		<hr>
+-->
+<div class="col-md-2 text-center">
+	<h3>Settings</h3>
+	<div class="time-zone">
+		<hr>
+		<div class="text-center">
+			<b><%= Time.zone.name%> Time Zone</b>
+			<hr>
+			<div class="btn btn-lg btn-success "><%= link_to 'change', edit_user_registration_path%></div>	
+		</div>
+	</div>
 
- 	</div>
+	<div class="social">
+		<hr>
+		<% unless current_user.connections.where(provider: 'twitter').any? %>
+				<%= link_to 'Connect Twitter', 'auth/twitter', class: 'btn btn-info btn-block btn-sm' %>
+			<% else %>
+				<%= link_to 'Connect Twitter', 'auth/twitter', class: 'btn btn-info btn-block btn-sm', disabled: true %>
+				<%= link_to 'Delete Connection', connection_path(current_user.connections.where(provider: 'twitter').first), method: :delete %>
+			<% end %>
+	</div>
+</div>
+<div class="col-md-5">
+	<h3 class="text-center">Scheduled</h3>
+	<hr>
+</div>
+<div class="col-md-5">
+	<h3 class="text-center">History</h3>
+	<hr>
+
+</div>
 
 </div> <!-- end row  -->
