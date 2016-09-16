@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 end
   get "/auth/:provider/callback", to: 'connections#create'
   resources :connections, only: [:destroy]
+  resources :posts do
+    member do
+      put :cancel
+    end
+  end 
 
 
   devise_for :users, controllers: { registrations: 'registrations'}  

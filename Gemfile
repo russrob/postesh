@@ -62,6 +62,7 @@ gem 'twitter'
 gem 'koala'
 gem 'delayed_job_active_record'
 gem 'delayed-web',github:'thebestday/delayed-web'
+gem 'will_paginate'
 
 
 
